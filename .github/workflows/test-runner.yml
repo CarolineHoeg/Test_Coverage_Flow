@@ -1,18 +1,19 @@
-name: "Main Build Process"
+name: Test Runner
 
-# Runs on main branch commits, 
-# every commit in a pull request, any published release.
-on:
-  push:
-    branches: ["main"]
+on: 
   pull_request:
     branches: ["main"]
   release:
     types: [published]
 
+
+# Test Coverage using GitHub Actions
+# By Sean Killeen https://seankilleen.com/2024/03/beautiful-net-test-reports-using-github-actions/    
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
+    
+
 jobs:
   build:
     name: "Build & Test"
